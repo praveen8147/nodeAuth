@@ -12,7 +12,7 @@ opts.secretOrKey = 'config.secret';
 // opts.issuer = 'accounts.examplesoft.com';
 // opts.audience = 'yoursite.net';
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-    User.getUserById({id: jwt_payload._doc._id}, function(err, user) {
+    User.getUserById(jwt_payload._doc._id, function(err, user) {
         if (err) {
             return done(err, false);
         }

@@ -51,10 +51,6 @@ module.exports = function(app, passport) {
 		})
 	})
 
-	app.get('/profile', passport.authenticate('jwt',{session:false}), function(){
-		res.json({user:req.user}); 
-	})
-
 	app.get('/logout', function(req,res){
 		req.logout();
 		res.redirect('/'); 
