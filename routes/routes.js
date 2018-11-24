@@ -5,7 +5,7 @@ var config = require('../config/database');
 module.exports = function(app, passport) {
 	// body...
 	app.get('/', function(req, res){
-		res.json('Welcome to node auth app..')
+		res.send('Welcome to node auth app..')
 	})
 
 	app.post('/signup', function(req, res){
@@ -18,19 +18,18 @@ module.exports = function(app, passport) {
 			if(err){
 				res.json({success:false, message:'user not registered successfully'})
 			}else{
-				res.json({success:true, message:'user registered successfully'})
+				res.json({success:true, data:user.email, message:'user registered successfully'})
 			}
 		})
 	})
 
 	app.post('/login', function(req, res){
-		console.log("hey i am here");
 		var email = req.body.email;
 		var password = req.body.password;
 		User.getUserByEmail(email, function(err, user){
 			if(err) throw err;
 			if(!user){
-				return res.json({success: false, message: "user not found!.."})
+				return res.json({success: false, message: "user not found"})
 			}
 			if(email !== user.email){
 				return res.json({success: false, message: "user not found"})

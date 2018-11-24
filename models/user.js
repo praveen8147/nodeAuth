@@ -39,7 +39,6 @@ module.exports.createUser = function(newUser, cb) {
 
 module.exports.comparePassword = function(myPassword, hash, cb) {
 	// body...
-	console.log("i am in comparePassword");
 	bcrypt.compare(myPassword, hash, function(err, isMatch){
 		if(err) throw isMatch;
 		cb(null, isMatch)
