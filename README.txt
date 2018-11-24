@@ -16,3 +16,18 @@ here mainly 5 routes are there,
 
 4. /logout -> get API for logout and redirected to home page response
 
+
+Test Case Run
+---------------
+
+Command : npm test
+
+
+Note : please ensure mongodb server running
+
+
+
+
+
+
+
